@@ -3,7 +3,6 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
 
-
 function App() {
   return (
     <>
