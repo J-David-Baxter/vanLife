@@ -8,11 +8,9 @@ const Home = () => {
         backgroundRepeat='no-repeat'
         backgroundSize='cover'
         p={20}
-        fontFamily='Inter'
         textAlign='center'
-        
     >
-        <Heading m='2.6em auto' fontFamily='Inter' color='white' maxW={650} fontWeight={800} fontSize={36}>You got the travel plans, we got the travel vans</Heading>
+        <Heading m='2.6em auto' color='white' maxW={650} fontWeight={800} fontSize={36}>You got the travel plans, we got the travel vans</Heading>
         <Text m='0 auto' color='white' maxW={650}>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</Text>
         <Button 
             colorScheme="orange" 
