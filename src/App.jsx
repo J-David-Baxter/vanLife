@@ -4,6 +4,7 @@ import About from "./pages/About"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import { Box } from "@chakra-ui/react"
+import "./server"
 
 function App() {
   return (
