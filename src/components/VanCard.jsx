@@ -2,6 +2,7 @@ import { Text, Card, CardHeader, Flex, Image } from "@chakra-ui/react"
 import upperCaseString from "../utils/upperCaseString"
 
 
+// eslint-disable-next-line react/prop-types
 const VanCard = ({ imageUrl, name, price, type }) => {
   const badgeColors = {
     simple: '#E17654',
@@ -24,7 +25,7 @@ const VanCard = ({ imageUrl, name, price, type }) => {
       <Flex
         width={40}
         backgroundColor={badgeColors[type]}
-        color={'#FFEAD0'}
+        color={'white'}
         height={10}
         justify='center'
         align='center'

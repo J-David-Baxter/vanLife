@@ -1,9 +1,11 @@
 import { Box, Button, ButtonGroup, Flex, Heading, Spinner, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import VanCard from "../components/VanCard"
+import getVans from '../utils/getVans'
 
 const Vans = () => {
   const [vans, setVans] = useState([])
+  const [error, setError] = useState('')
   const [activeFilter, setActiveFilter] = useState({
     simple: false,
     luxury: false,
@@ -11,13 +13,14 @@ const Vans = () => {
   })
 
   useEffect(() => {
-    fetch('/api/vans')
-        .then(res => res.json())
+    getVans('/api/vans')
         .then(data => setVans(data.vans))
+        .catch(error => setError(error))
   }, [])
 
   function filterSimple() {
     setActiveFilter({simple: true, luxury: false, rugged: false})
+
   }
 
   function filterLuxury() {
@@ -64,6 +67,7 @@ const Vans = () => {
         </Flex>
         <Flex wrap='wrap' gap={20} mt={10}>
           {vans.length < 1 && <Spinner color="#161616" size='xl'/>}
+          {error && error}
             {vans.map(van => (
                 <VanCard 
                   key={van.id} {...van}
