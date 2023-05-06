@@ -1,7 +1,6 @@
-import { Box, Button, ButtonGroup, Flex, Heading, Text } from "@chakra-ui/react"
+import { Box, Button, ButtonGroup, Flex, Heading, Spinner, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import VanCard from "../components/VanCard";
-
+import VanCard from "../components/VanCard"
 
 const Vans = () => {
   const [vans, setVans] = useState([])
@@ -63,10 +62,13 @@ const Vans = () => {
             </ButtonGroup>
             <Text textDecoration='underline' cursor='pointer' onClick={clearFilters}>Clear filters</Text>
         </Flex>
-        <Flex>
-            {/* {vans.map((van, i) => (
-                <VanCard key={i}/>
-            ))} */}
+        <Flex wrap='wrap' gap={20} mt={10}>
+          {vans.length < 1 && <Spinner color="#161616" size='xl'/>}
+            {vans.map(van => (
+                <VanCard 
+                  key={van.id} {...van}
+                />
+            ))}
         </Flex>
     </Box>
   )
