@@ -40,7 +40,7 @@ const Vans = () => {
     <Box p={10} ml={20}>
         <Heading color='#161616' fontSize='40px' mb={10}>Explore our van options</Heading>
         <Flex gap={20} align='center'>
-            <ButtonGroup gap={10} size='lg'>
+            <ButtonGroup gap={10} size='lg' isDisabled={loading}>
                 <Button 
                     backgroundColor='#FFEAD0' 
                     isActive={activeFilter.simple} 
