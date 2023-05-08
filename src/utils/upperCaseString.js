@@ -1,5 +1,7 @@
 const upperCaseString = (string) => {
-    return string[0].toUpperCase() + string.slice(1);
+    if (typeof string !== 'string') return
+    const firstLetter = string[0].toUpperCase();
+    return firstLetter + string.slice(1);
 }
 
 export default upperCaseString

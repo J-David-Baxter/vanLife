@@ -1,15 +1,10 @@
-import { Text, Card, CardHeader, Flex, Image } from "@chakra-ui/react"
-import upperCaseString from "../utils/upperCaseString"
+import { Card, CardHeader, Flex, Image } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
+import VanTypeBadge from "./VanTypeBadge"
 
 
 // eslint-disable-next-line react/prop-types
 const VanCard = ({ imageUrl, name, price, type, id }) => {
-  const badgeColors = {
-    simple: '#E17654',
-    luxury: '#161616',
-    rugged: '#115E59'
-  }
   
   return (
     <Link to={`/vans/${id}`}>
@@ -24,17 +19,7 @@ const VanCard = ({ imageUrl, name, price, type, id }) => {
           <CardHeader >{name}</CardHeader>
           <CardHeader>${price}/day</CardHeader>
         </Flex>
-        <Flex
-          width={40}
-          backgroundColor={badgeColors[type]}
-          color={'white'}
-          height={10}
-          justify='center'
-          align='center'
-          fontWeight={600}
-          >
-          <Text>{upperCaseString(type)}</Text>
-        </Flex>
+        <VanTypeBadge type={type} width={40}/>
       </Card>
     </Link>
   )
