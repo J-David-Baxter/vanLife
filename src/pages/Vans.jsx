@@ -1,31 +1,39 @@
 import { Box, Button, ButtonGroup, Flex, Heading, Spinner, Text } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import VanCard from "../components/VanCard"
 import useFetch from "../hooks/useFetch"
 
 const Vans = () => {
   const { data, loading, error} = useFetch('/api/vans')
+  const [filteredData, setFilteredData] = useState(null)
   const [activeFilter, setActiveFilter] = useState({
     simple: false,
     luxury: false,
     rugged: false,
   })
+  
+  useEffect(() => {
+    setFilteredData(data && data.vans)
+  }, [data])
 
   function filterSimple() {
     setActiveFilter({simple: true, luxury: false, rugged: false})
-
+    setFilteredData(data.vans.filter(van => van.type === 'simple'))
   }
 
   function filterLuxury() {
     setActiveFilter({simple: false, luxury: true, rugged: false})
+    setFilteredData(data.vans.filter(van => van.type === 'luxury'))
   }
 
   function filterRugged() {
     setActiveFilter({simple: false, luxury: false, rugged: true})
+    setFilteredData(data.vans.filter(van => van.type === 'rugged'))
   }
 
   function clearFilters() {
     setActiveFilter({simple: false, luxury: false, rugged: false})
+    setFilteredData(data.vans)
   }
   
   return (
@@ -61,7 +69,7 @@ const Vans = () => {
         <Flex wrap='wrap' gap={20} mt={10}>
           {loading && <Spinner color="#161616" size='xl'/>}
           {error && <Text>Something went wrong!</Text>}
-            {data && data.vans.map(van => (
+            {filteredData && filteredData.map(van => (
                 <VanCard 
                   key={van.id} {...van}
                 />
