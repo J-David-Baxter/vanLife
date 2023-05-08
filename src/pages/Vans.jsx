@@ -1,22 +1,15 @@
 import { Box, Button, ButtonGroup, Flex, Heading, Spinner, Text } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import VanCard from "../components/VanCard"
-import getVans from '../utils/getVans'
+import useFetch from "../hooks/useFetch"
 
 const Vans = () => {
-  const [vans, setVans] = useState([])
-  const [error, setError] = useState('')
+  const { data, loading, error} = useFetch('/api/vans')
   const [activeFilter, setActiveFilter] = useState({
     simple: false,
     luxury: false,
     rugged: false,
   })
-
-  useEffect(() => {
-    getVans('/api/vans')
-        .then(data => setVans(data.vans))
-        .catch(error => setError(error))
-  }, [])
 
   function filterSimple() {
     setActiveFilter({simple: true, luxury: false, rugged: false})
@@ -66,9 +59,9 @@ const Vans = () => {
             <Text textDecoration='underline' cursor='pointer' onClick={clearFilters}>Clear filters</Text>
         </Flex>
         <Flex wrap='wrap' gap={20} mt={10}>
-          {vans.length < 1 && <Spinner color="#161616" size='xl'/>}
-          {error && error}
-            {vans.map(van => (
+          {loading && <Spinner color="#161616" size='xl'/>}
+          {error && <Text>Something went wrong!</Text>}
+            {data && data.vans.map(van => (
                 <VanCard 
                   key={van.id} {...van}
                 />

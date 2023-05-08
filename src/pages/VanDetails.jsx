@@ -1,24 +1,19 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import getVans from "../utils/getVans"
-import { Box } from "@chakra-ui/react";
+import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
+import useFetch from "../hooks/useFetch";
 
 
 const VanDetails = () => {
   const params = useParams()
   const id = params.id
-  const [van, setVan] = useState(null)
+  const {data, loading, error} = useFetch(`/api/vans/${id}`)
 
-  useEffect(() => {
-    getVans(`/api/vans/${id}`)
-        .then(data => setVan(data.vans));
-  }, [id])
-
-  const {imageUrl, name, price, type, description} = van
   
   return (
     <Box>
-        
+        {loading && <Spinner color="#161616" size='xl'/>}
+        {error && <Text>Something went wrong!</Text>}
+        <Heading>{data && data.vans.name}</Heading>
     </Box>
   )
 }
