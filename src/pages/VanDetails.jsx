@@ -23,7 +23,7 @@ const VanDetails = () => {
           <VanTypeBadge type={data && data.vans.type} width={60}/>
           <Heading>{data && data.vans.name}</Heading>
           <Heading>${data && data.vans.price}/day</Heading>
-          <Text lineHeight={1.5}>{data && data.vans.description}</Text>
+          <Text lineHeight={1.6} fontSize={18}>{data && data.vans.description}</Text>
         </Stack>
       </Stack>
     </>
