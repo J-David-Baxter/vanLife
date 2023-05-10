@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Spinner, Text, Flex } from "@chakra-ui/react"
 import VanCard from "./VanCard"
 

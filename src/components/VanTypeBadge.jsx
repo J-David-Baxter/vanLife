@@ -1,7 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react"
 import upperCaseString from "../utils/upperCaseString"
 
-// eslint-disable-next-line react/prop-types
 const VanTypeBadge = ({ type, width }) => {
   const badgeColors = {
     simple: '#E17654',

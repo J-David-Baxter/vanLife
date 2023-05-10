@@ -2,10 +2,7 @@ import { Card, CardHeader, Flex, Image } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import VanTypeBadge from "./VanTypeBadge"
 
-
-// eslint-disable-next-line react/prop-types
 const VanCard = ({ imageUrl, name, price, type, id }) => {
-  
   return (
     <Link to={`/vans/${id}`}>
       <Card size='lg' variant='unstyled' backgroundColor='none'>

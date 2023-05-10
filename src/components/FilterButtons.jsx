@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Button, ButtonGroup, Text, Flex } from '@chakra-ui/react'
 
 const FilterButtons = ({ loading, activeFilter, filterSimple, filterRugged, filterLuxury, clearFilters }) => {
