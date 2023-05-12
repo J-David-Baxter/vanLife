@@ -38,7 +38,7 @@ const Vans = () => {
   }
   
   return (
-    <Box p={10} ml={20}>
+    <Box p={10} ml={20} minHeight='100%'>
         <Heading color='#161616' fontSize='40px' mb={10}>Explore our van options</Heading>
         <FilterButtons 
           loading={loading} 
