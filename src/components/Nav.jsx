@@ -8,9 +8,9 @@ const Nav = () => {
         <Link as={RouterLink} to="/" mr='auto' _hover={{textDecoration: 'none'}}>
             <Heading fontFamily='Inter'>#VANLIFE</Heading>
         </Link>
-        <Link as={RouterLink} to="/" fontSize={20} color='#4D4D4D' mr={5}>Home</Link>
-        <Link as={RouterLink} to="/about" fontSize={20} color='#4D4D4D' mr={5}>About</Link>
-        <Link as={RouterLink} to="/vans" fontSize={20} color='#4D4D4D' mr={5}>Vans</Link>
+        <Link as={RouterLink} to="/host" fontSize={20} color='#4D4D4D'>Host</Link>
+        <Link as={RouterLink} to="/about" fontSize={20} color='#4D4D4D' >About</Link>
+        <Link as={RouterLink} to="/vans" fontSize={20} color='#4D4D4D' >Vans</Link>
     </Flex>
   )
 }

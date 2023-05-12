@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { Heading, Image, Spinner, Text, Stack, Box } from "@chakra-ui/react";
-import useFetch from "../hooks/useFetch";
-import VanTypeBadge from "../components/VanTypeBadge";
+import useFetch from "../../hooks/useFetch";
+import VanTypeBadge from "../../components/VanTypeBadge";
 
 
 const VanDetails = () => {

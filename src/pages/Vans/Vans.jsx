@@ -1,8 +1,8 @@
 import { Box, Heading } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import useFetch from "../hooks/useFetch"
-import VanList from "../components/VanList"
-import FilterButtons from "../components/FilterButtons"
+import useFetch from "../../hooks/useFetch"
+import VanList from "../../components/VanList"
+import FilterButtons from "../../components/FilterButtons"
 
 const Vans = () => {
   const { data, loading, error} = useFetch('/api/vans')
